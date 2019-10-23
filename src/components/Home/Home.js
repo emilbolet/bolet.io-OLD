@@ -1,23 +1,40 @@
 import React, { Component } from 'react';
+import { IconContext } from "react-icons";
 import { FiMonitor,FiCloud,FiWifi,FiHome } from "react-icons/fi";
-import axios from 'axios';
 import './Home.css'
 export class Home extends Component {
   static displayName = Home.name;
-  state = {
-    videos: [],
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: null,
+      isLoaded: false,
+      items: []
+    };
   }
   componentDidMount() {
-    axios.get(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyB8EEpxcGhgp5kH743SMtH5uBxUrU7hgVw&channelId=UCR_aVx8lLR_vxI1m7S-GDxQ&part=snippet,id&order=date&maxResults=20`)
-      .then(res => {
-        const videos = res.data.items;
-        console.log(videos);
-        this.setState({ videos });
-      })
+    fetch("https://www.googleapis.com/youtube/v3/search?key=AIzaSyB8EEpxcGhgp5kH743SMtH5uBxUrU7hgVw&channelId=UCsMica-v34Irf9KVTh6xx-g&part=snippet,id&order=date&maxResults=5")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            items: result.items
+          });
+        },
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
   }
-
   render () {
+    const { error, isLoaded, items } = this.state;
+    console.log(items);
     return (
+      
       <div>
         <header className="masthead">
           <div className="container h-100">
@@ -37,12 +54,16 @@ export class Home extends Component {
         </section>
         <section className="border-bottom section-padding">
           <div className="container">
+
            <div className="row text-center">
+             
              <div className="col-md-3 pb-5">
+             <IconContext.Provider value={{color: "#093c84" }}>
              <FiMonitor className="icon-1000"/>
+             </IconContext.Provider>
              </div>
              <div className="col-md-3 pb-5">
-             <FiCloud className="icon-1000"/>
+             <FiCloud className="icon-1000 "/>
              </div>
              <div className="col-md-3 pb-5">
              <FiWifi className="icon-1000"/>
@@ -54,8 +75,18 @@ export class Home extends Component {
           </div>
         </section>
         <section className="bg-light border-bottom section-padding text-right">
-          <div className="container">
+          <div className="container testimonial-group">
+            
             <h2 className="font-weight-light">Recent Videos</h2>
+            <div className="row">
+            {items.map(item => (
+              <div className="col">
+                   <img key={item.etag} src={item.snippet.thumbnails.high.url}></img>
+              </div>
+
+            ))}
+            </div>
+
           </div>
           
         </section>
