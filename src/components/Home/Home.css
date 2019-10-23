@@ -21,3 +21,11 @@
   .small-big-text{
     font-size: 3rem;
   }
+  @media (max-width: 479px) {
+    .big-text{
+      font-size: 2.5rem;
+    }
+    .small-big-text{
+      font-size: 1.25rem;
+    }
+}
