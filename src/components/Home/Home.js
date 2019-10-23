@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FiMonitor,FiCloud,FiWifi } from "react-icons/fi";
+import { FiMonitor,FiCloud,FiWifi,FiHome } from "react-icons/fi";
 import axios from 'axios';
 import './Home.css'
 export class Home extends Component {
@@ -23,29 +23,32 @@ export class Home extends Component {
           <div className="container h-100">
             <div className="row h-100 align-items-center">
               <div className="col-12 text-center">
-                <h1 className="font-weight-light">Let's go for the Cloud</h1>
-                <p className="lead">And build amazing things together</p>
+                <h1 className="font-weight-light big-text">Let's go for the Cloud</h1>
+                <p className="lead small-big-text">And build amazing things together</p>
               </div>
             </div>
           </div>
         </header>
         <section className="bg-light border-bottom section-padding">
           <div className="container">
-            <h2 className="font-weight-light">Web & Software</h2>
+            <h2 className="font-weight-light ">Web & Software</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus ab nulla dolorum autem nisi officiis blanditiis voluptatem hic, assumenda aspernatur facere ipsam nemo ratione cumque magnam enim fugiat reprehenderit expedita.</p>
           </div>
         </section>
         <section className="border-bottom section-padding">
           <div className="container">
            <div className="row text-center">
-             <div className="col">
+             <div className="col-md-3 pb-5">
              <FiMonitor className="icon-1000"/>
              </div>
-             <div className="col">
+             <div className="col-md-3 pb-5">
              <FiCloud className="icon-1000"/>
              </div>
-             <div className="col">
+             <div className="col-md-3 pb-5">
              <FiWifi className="icon-1000"/>
+             </div>
+             <div className="col-md-3 pb-5">
+             <FiHome className="icon-1000"/>
              </div>
            </div>
           </div>

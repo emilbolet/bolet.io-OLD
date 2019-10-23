@@ -1,14 +1,17 @@
 import "./Footer.css";
+import Moment from 'react-moment';
 import React from "react";
+
 import { FiFacebook,FiLinkedin,FiTwitter,FiGithub } from "react-icons/fi";
 
 function template() {
+    const dateTime = new Date().getTime();
   return (
 <footer className="footer py-4">
           <div className="container">
                 <div className="row">
                     <div className="col-sm-6 pt-3">
-                        © @DateTime.Now.Year Emil Bolet — All Rights Reserved
+                        © <Moment date={dateTime} format="YYYY" /> Emil Bolet — All Rights Reserved
                     </div>
                     <div className="col-sm-6 ">
                         <ul className="list-group list-group-horizontal float-right">
