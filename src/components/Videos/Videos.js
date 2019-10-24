@@ -1,6 +1,6 @@
 import React    from "react";
 import axios from 'axios';
-
+import {Searchbar} from './Searchbar'
 export class Videos extends React.Component {
   state = {
     videos: [],
@@ -19,6 +19,7 @@ render() {
     return (
 
       <div>
+        <Searchbar></Searchbar>
       { this.state.videos.map(video => 
           <div className=' video-item item'>
                 <img className='ui image' src={video.snippet.thumbnails.medium.url} alt={video.snippet.description}/>

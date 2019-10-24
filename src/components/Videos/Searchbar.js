@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Searchbar extends React.Component {
+export class Searchbar extends React.Component {
     state = {
         term: 'Default text'
     };
@@ -16,15 +16,10 @@ class Searchbar extends React.Component {
 
     render() {
         return (
-            <div className='search-bar ui segment'>
-                <form onSubmit={this.handleSubmit} className='ui form'>
-                    <div className='field'>
-                        <label htmlFor="video-search">Video Search</label>
-                        <input onChange={this.handleChange} name='video-search' type="text" value={this.state.term}/>
-                    </div>
-                </form>
+            <div class="md-form">
+                <label htmlFor="video-search">Video Search</label>
+              <input class="form-control" type="text" placeholder="Search" aria-label="Search" onChange={this.handleChange} value={this.state.term} />
             </div>
         )
     }
 }
-export default Searchbar;

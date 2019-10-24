@@ -13,7 +13,7 @@ export class Home extends Component {
     };
   }
   componentDidMount() {
-    fetch("https://www.googleapis.com/youtube/v3/search?key=AIzaSyB8EEpxcGhgp5kH743SMtH5uBxUrU7hgVw&channelId=UCsMica-v34Irf9KVTh6xx-g&part=snippet,id&order=date&maxResults=5")
+    fetch("https://www.googleapis.com/youtube/v3/search?key=AIzaSyB8EEpxcGhgp5kH743SMtH5uBxUrU7hgVw&channelId=UCsMica-v34Irf9KVTh6xx-g&part=snippet,id&order=date&maxResults=3")
       .then(res => res.json())
       .then(
         (result) => {
@@ -75,13 +75,14 @@ export class Home extends Component {
           </div>
         </section>
         <section className="bg-light border-bottom section-padding text-right">
-          <div className="container testimonial-group">
-            
+          <div className="container">
             <h2 className="font-weight-light">Recent Videos</h2>
             <div className="row">
             {items.map(item => (
-              <div className="col">
-                   <img key={item.etag} src={item.snippet.thumbnails.high.url}></img>
+              <div className="col-md-4">
+                <a href={"https://www.youtube.com/watch?v=" +item.id.videoId}>
+                  <img className="img-thumbnail" key={item.etag} src={item.snippet.thumbnails.high.url}></img>
+                </a>
               </div>
 
             ))}
