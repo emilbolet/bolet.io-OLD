@@ -2,7 +2,7 @@ import React from 'react';
 
 export class Searchbar extends React.Component {
     state = {
-        term: 'Default text'
+        term: ''
     };
     handleChange = (event) => {
         this.setState({
@@ -16,9 +16,8 @@ export class Searchbar extends React.Component {
 
     render() {
         return (
-            <div className="md-form pt-3">
-                <label htmlFor="video-search">Video Search</label>
-              <input className="form-control" type="text" placeholder="Search" aria-label="Search" onChange={this.handleChange} value={this.state.term} />
+            <div className="mb-5">
+                <input className="form-control" type="text" placeholder="Search" aria-label="Search" onChange={this.handleChange} value={this.state.term} />
             </div>
         )
     }

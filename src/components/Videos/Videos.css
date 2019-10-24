@@ -1,4 +1,8 @@
-.card{
-    width: 18rem;
-    margin: 1rem;
+
+.card-header-light{
+    background: white;
+}
+
+.no-border{
+    border: 0;
 }

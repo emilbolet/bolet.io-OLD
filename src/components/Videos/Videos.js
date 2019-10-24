@@ -1,6 +1,7 @@
 import React    from "react";
 import axios from 'axios';
 import {Searchbar} from './Searchbar'
+import {Filters} from './Filters'
 import './Videos.css'
 export class Videos extends React.Component {
   constructor(props) {
@@ -36,17 +37,24 @@ render() {
     return (
       <div className="container-fluid">
         <div className="row">
-          <Searchbar></Searchbar>
-        </div>
-        <div className="row">
+
           <div className="col-lg-2">
-            <h3>Filters</h3>
+
+          <Filters></Filters>
+            
           </div>
           <div className="col-lg-10">
             <div className="container">
+              <div className="row">
+                  <div className="col-12">
+                  <Searchbar></Searchbar>
+                  </div>
+              </div>
             <div className="row">
             { this.state.items.map(video => 
-              <div className="card" key={video.etag}>
+
+              <div className="col-3">
+                <div className="card" key={video.etag}>
                 <img src={video.snippet.thumbnails.high.url} className="card-img-top" alt={video.snippet.title}/>
                 <div className="card-body">
                   <h5 className="card-title">{video.snippet.title}</h5>
@@ -54,6 +62,8 @@ render() {
                   <a href={"https://www.youtube.com/watch?v=" +video.id.videoId} className="btn btn-primary">Watch Video</a>
                 </div>
               </div>
+              </div>
+
               )
             }
             </div>
