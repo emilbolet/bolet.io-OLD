@@ -1,9 +1,13 @@
 import React    from "react";
-import template from "./About.jsx";
+import './About.css'
 
 export class About extends React.Component {
   render() {
-    return template.call(this);
+    return (
+      <div className="about">
+      <h1>About</h1>
+    </div>
+    );
   }
 }
 

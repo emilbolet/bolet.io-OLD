@@ -63,13 +63,17 @@ export class Home extends Component {
              </IconContext.Provider>
              </div>
              <div className="col-md-3 pb-5">
-             <FiCloud className="icon-1000 "/>
+             <IconContext.Provider value={{color: "#093c84" }}>
+             <FiCloud className="icon-1000"/>
+             </IconContext.Provider>
              </div>
              <div className="col-md-3 pb-5">
-             <FiWifi className="icon-1000"/>
+
              </div>
              <div className="col-md-3 pb-5">
+             <IconContext.Provider value={{color: "#093c84" }}>
              <FiHome className="icon-1000"/>
+             </IconContext.Provider>
              </div>
            </div>
           </div>
@@ -79,9 +83,9 @@ export class Home extends Component {
             <h2 className="font-weight-light">Recent Videos</h2>
             <div className="row">
             {items.map(item => (
-              <div className="col-md-4">
+              <div className="col-md-4" key={item.etag}>
                 <a href={"https://www.youtube.com/watch?v=" +item.id.videoId}>
-                  <img className="img-thumbnail" key={item.etag} src={item.snippet.thumbnails.high.url}></img>
+                  <img className="img-thumbnail"  src={item.snippet.thumbnails.high.url}></img>
                 </a>
               </div>
 

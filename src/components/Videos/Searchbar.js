@@ -16,9 +16,9 @@ export class Searchbar extends React.Component {
 
     render() {
         return (
-            <div class="md-form">
+            <div className="md-form pt-3">
                 <label htmlFor="video-search">Video Search</label>
-              <input class="form-control" type="text" placeholder="Search" aria-label="Search" onChange={this.handleChange} value={this.state.term} />
+              <input className="form-control" type="text" placeholder="Search" aria-label="Search" onChange={this.handleChange} value={this.state.term} />
             </div>
         )
     }

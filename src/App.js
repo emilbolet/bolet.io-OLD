@@ -13,7 +13,6 @@ function App() {
   return (
   <Layout>
     <Route exact path='/' component={Home} />
-
     <Route exact path='/videos' component={Videos}/>
     <Route exact path='/portfolio' component={Portfolio} />
     <Route exact path='/resume' component={Resume} />
