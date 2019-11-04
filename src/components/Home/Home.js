@@ -68,7 +68,9 @@ export class Home extends Component {
              </IconContext.Provider>
              </div>
              <div className="col-md-3 pb-5">
-
+             <IconContext.Provider value={{color: "#093c84" }}>
+             <FiWifi className="icon-1000"/>
+             </IconContext.Provider>
              </div>
              <div className="col-md-3 pb-5">
              <IconContext.Provider value={{color: "#093c84" }}>

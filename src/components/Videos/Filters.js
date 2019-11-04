@@ -1,5 +1,6 @@
 import React from 'react';
 import { Collapse, CardBody, Card, CardHeader } from 'reactstrap';
+import { FaAngleDown,FaAngleUp } from "react-icons/fa";
 
 export class Filters extends React.Component {
     constructor(props) {
@@ -20,7 +21,7 @@ export class Filters extends React.Component {
               {cards.map(index => {
                 return (
                   <Card key={index} className="no-border">
-                    <CardHeader onClick={this.toggle} className="card-header-light" data-event={index}>{"Category "+index}</CardHeader>
+                    <CardHeader onClick={this.toggle} className="card-header-light" data-event={index}>{"Category "+index} <FaAngleDown className="float-right"></FaAngleDown> </CardHeader>
                     <Collapse isOpen={collapse === index}>
                     <CardBody>
                         <div className="form-check">
