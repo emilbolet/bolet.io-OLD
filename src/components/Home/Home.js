@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { IconContext } from "react-icons";
 import { FiMonitor,FiCloud,FiWifi,FiHome } from "react-icons/fi";
 import './Home.css'
+let apiKey = process.env.REACT_APP_API_KEY;
 export class Home extends Component {
   static displayName = Home.name;
   constructor(props) {
@@ -13,7 +14,7 @@ export class Home extends Component {
     };
   }
   componentDidMount() {
-    fetch("https://www.googleapis.com/youtube/v3/search?key=AIzaSyB8EEpxcGhgp5kH743SMtH5uBxUrU7hgVw&channelId=UCsMica-v34Irf9KVTh6xx-g&part=snippet,id&order=date&maxResults=3")
+    fetch("https://www.googleapis.com/youtube/v3/search?key="+apiKey+"&channelId=UCsMica-v34Irf9KVTh6xx-g&part=snippet,id&order=date&maxResults=3")
       .then(res => res.json())
       .then(
         (result) => {
@@ -24,7 +25,7 @@ export class Home extends Component {
         },
         (error) => {
           this.setState({
-            isLoaded: true,
+            isLoaded: false,
             error
           });
         }
@@ -33,6 +34,23 @@ export class Home extends Component {
   render () {
     const { error, isLoaded, items } = this.state;
     console.log(items);
+    let videos = <div></div>
+    if(items && items.length>0)
+    {
+      videos = items.map(item => (
+        <div className="col-md-4" key={item.etag}>
+          <a href={"https://www.youtube.com/watch?v=" +item.id.videoId}>
+            <img className="img-thumbnail"  src={item.snippet.thumbnails.high.url} alt={item.snippet.title}></img>
+          </a>
+        </div>
+
+      ));
+    }
+    else
+    {
+      console.log(error);
+    }
+
     return (
       
       <div>
@@ -84,14 +102,7 @@ export class Home extends Component {
           <div className="container">
             <h2 className="font-weight-light">Recent Videos</h2>
             <div className="row">
-            {items.map(item => (
-              <div className="col-md-4" key={item.etag}>
-                <a href={"https://www.youtube.com/watch?v=" +item.id.videoId}>
-                  <img className="img-thumbnail"  src={item.snippet.thumbnails.high.url}></img>
-                </a>
-              </div>
-
-            ))}
+            {videos}
             </div>
 
           </div>

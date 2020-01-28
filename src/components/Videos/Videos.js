@@ -1,8 +1,10 @@
 import React    from "react";
-import axios from 'axios';
 import {Searchbar} from './Searchbar'
 import {Filters} from './Filters'
 import './Videos.css'
+
+let apiKey = process.env.REACT_APP_API_KEY;
+
 export class Videos extends React.Component {
   constructor(props) {
     super(props);
@@ -12,8 +14,9 @@ export class Videos extends React.Component {
       items: []
     };
   }
+
   componentDidMount() {
-    fetch("https://www.googleapis.com/youtube/v3/search?key=AIzaSyB8EEpxcGhgp5kH743SMtH5uBxUrU7hgVw&channelId=UCsMica-v34Irf9KVTh6xx-g&part=snippet,id&order=date&maxResults=12")
+    fetch("https://www.googleapis.com/youtube/v3/search?key="+apiKey+"&channelId=UCsMica-v34Irf9KVTh6xx-g&part=snippet,id&order=date&maxResults=12")
       .then(res => res.json())
       .then(
         (result) => {
@@ -34,6 +37,28 @@ export class Videos extends React.Component {
 render() {
   const { error, isLoaded, items } = this.state;
   console.log(items);
+  let videos = <div></div>
+  if(items && items.length>0)
+  {
+    videos =  this.state.items.map(video => 
+
+      <div className="col-3">
+        <div className="card" key={video.etag}>
+        <img src={video.snippet.thumbnails.high.url} className="card-img-top" alt={video.snippet.title}/>
+        <div className="card-body">
+          <h5 className="card-title">{video.snippet.title}</h5>
+          <p className="card-text">{video.snippet.description}</p>
+          <a href={"https://www.youtube.com/watch?v=" +video.id.videoId} className="btn btn-primary">Watch Video</a>
+        </div>
+      </div>
+      </div>
+
+      );
+  }
+  else
+  {
+    console.log(error);
+  }
     return (
       <div className="container-fluid">
         <div className="row">
@@ -51,29 +76,12 @@ render() {
                   </div>
               </div>
             <div className="row">
-            { this.state.items.map(video => 
-
-              <div className="col-3">
-                <div className="card" key={video.etag}>
-                <img src={video.snippet.thumbnails.high.url} className="card-img-top" alt={video.snippet.title}/>
-                <div className="card-body">
-                  <h5 className="card-title">{video.snippet.title}</h5>
-                  <p className="card-text">{video.snippet.description}</p>
-                  <a href={"https://www.youtube.com/watch?v=" +video.id.videoId} className="btn btn-primary">Watch Video</a>
-                </div>
-              </div>
-              </div>
-
-              )
-            }
+            {videos}
             </div>
             </div>
           </div>
         </div>
-
-
       </div>
     )
   }
 }
-
