@@ -66,7 +66,7 @@ export class Home extends Component {
         </header>
         <section className="bg-light border-bottom section-padding">
           <div className="container">
-            <h2 className="font-weight-light ">Web & Software</h2>
+            <h2 className="font-weight-light ">Bolet.io</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus ab nulla dolorum autem nisi officiis blanditiis voluptatem hic, assumenda aspernatur facere ipsam nemo ratione cumque magnam enim fugiat reprehenderit expedita.</p>
           </div>
         </section>
