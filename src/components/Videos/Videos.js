@@ -33,10 +33,29 @@ export class Videos extends React.Component {
         }
       )
   }
+  search = (query) => {
+    console.log(query);
+    fetch("https://www.googleapis.com/youtube/v3/search?key="+apiKey+"&channelId=UCsMica-v34Irf9KVTh6xx-g&part=snippet,id&order=date&maxResults=12&q="+query)
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            items: result.items
+          });
+        },
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
+      console.log(this.state.items)
+}
 
 render() {
   const { error, isLoaded, items } = this.state;
-  console.log(items);
   let videos = <div></div>
   if(items && items.length>0)
   {
@@ -62,17 +81,17 @@ render() {
     return (
       <div className="container-fluid">
         <div className="row">
-
+          {/* 
           <div className="col-lg-2">
 
           <Filters></Filters>
             
-          </div>
-          <div className="col-lg-10">
+          </div> */}
+          <div className="col-lg-12">
             <div className="container">
               <div className="row">
                   <div className="col-12">
-                  <Searchbar></Searchbar>
+                  <Searchbar callbackFromParent={this.search}></Searchbar>
                   </div>
               </div>
             <div className="row">

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { IconContext } from "react-icons";
-import { FiMonitor,FiCloud,FiWifi,FiHome } from "react-icons/fi";
+import { FiMonitor,FiCloud,FiWifi,FiHome,FiPackage } from "react-icons/fi";
 import './Home.css'
 let apiKey = process.env.REACT_APP_API_KEY;
 export class Home extends Component {
@@ -79,11 +79,13 @@ export class Home extends Component {
              <IconContext.Provider value={{color: "#093c84" }}>
              <FiMonitor className="icon-1000"/>
              </IconContext.Provider>
+             <h5>IaaS</h5>
              </div>
              <div className="col-md-3 pb-5">
              <IconContext.Provider value={{color: "#093c84" }}>
              <FiCloud className="icon-1000"/>
              </IconContext.Provider>
+             <h5>Cloud Computing</h5>
              </div>
              <div className="col-md-3 pb-5">
              <IconContext.Provider value={{color: "#093c84" }}>

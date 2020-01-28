@@ -5,7 +5,7 @@ import { Layout } from './components/Layout';
 import { Home } from './components/Home/Home';
 import {Videos} from './components/Videos/Videos'
 import {About} from './components/About/About'
-
+  
 
 function App() {
   return (
