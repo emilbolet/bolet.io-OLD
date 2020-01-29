@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { IconContext } from "react-icons";
-import { FiMonitor,FiCloud,FiWifi,FiHome,FiPackage } from "react-icons/fi";
+import { FiLayers,FiCloud,FiTruck,FiCode } from "react-icons/fi";
 import './Home.css'
 let apiKey = process.env.REACT_APP_API_KEY;
 export class Home extends Component {
@@ -74,14 +74,7 @@ export class Home extends Component {
           <div className="container">
 
            <div className="row text-center">
-             
-             <div className="col-md-3 pb-5">
-             <IconContext.Provider value={{color: "#093c84" }}>
-             <FiMonitor className="icon-1000"/>
-             </IconContext.Provider>
-             <h5>IaaS</h5>
-             </div>
-             <div className="col-md-3 pb-5">
+           <div className="col-md-3 pb-5">
              <IconContext.Provider value={{color: "#093c84" }}>
              <FiCloud className="icon-1000"/>
              </IconContext.Provider>
@@ -89,13 +82,21 @@ export class Home extends Component {
              </div>
              <div className="col-md-3 pb-5">
              <IconContext.Provider value={{color: "#093c84" }}>
-             <FiWifi className="icon-1000"/>
+             <FiTruck className="icon-1000"/>
              </IconContext.Provider>
+             <h5>DevOps</h5>
              </div>
              <div className="col-md-3 pb-5">
              <IconContext.Provider value={{color: "#093c84" }}>
-             <FiHome className="icon-1000"/>
+             <FiCode className="icon-1000"/>
              </IconContext.Provider>
+             <h5>Software Development</h5>
+             </div>
+             <div className="col-md-3 pb-5">
+             <IconContext.Provider value={{color: "#093c84" }}>
+             <FiLayers className="icon-1000"/>
+             </IconContext.Provider>
+             <h5>Infrastructure As Code</h5>
              </div>
            </div>
           </div>
@@ -105,10 +106,8 @@ export class Home extends Component {
             <h2 className="font-weight-light">Recent Videos</h2>
             <div className="row">
             {videos}
-            </div>
-
-          </div>
-          
+            </div>  
+          </div>  
         </section>
       </div>
 

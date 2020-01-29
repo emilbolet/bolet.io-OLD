@@ -2,6 +2,23 @@ import React    from "react";
 import './About.css'
 import me from './me.png'
 export class About extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      age: 0,
+    };
+  }
+  componentDidMount() {
+      let birthday = new Date(1992,7,4).getTime();
+      let now = Date.now();
+      let diff = (now - birthday) / 1000;
+      diff /= (60 * 60 * 24);
+
+      this.setState({
+        age:Math.abs(Math.round(diff/365.25))
+      });
+  }
+
   render() {
     return (
       <div>
@@ -10,6 +27,7 @@ export class About extends React.Component {
             <div className="row"> 
               <div className="col-9">
                 <h2 class="font-weight-light ">Hi, my name is Emil Ræbild Bolet </h2>
+                <p>I'm {this.state.age} years old.</p>
                 <p>I live in the fourth largest city in Denmark called Aalborg with my beautiful girlfriend Trine and I work at a small company called Commentor A/S.</p>
                 <p>My mission in life is to build amazing scalable applications that runs in the cloud. </p>
                 <p>In my daily life I work with helping customers move to and build for the cloud. </p>
