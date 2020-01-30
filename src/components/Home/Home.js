@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { IconContext } from "react-icons";
 import { FiLayers,FiCloud,FiTruck,FiCode } from "react-icons/fi";
+import { Link } from 'react-router-dom';
 import './Home.css'
 let apiKey = process.env.REACT_APP_API_KEY;
 export class Home extends Component {
@@ -75,28 +76,37 @@ export class Home extends Component {
 
            <div className="row text-center">
            <div className="col-md-3 pb-5">
-             <IconContext.Provider value={{color: "#093c84" }}>
-             <FiCloud className="icon-1000"/>
-             </IconContext.Provider>
-             <h5>Cloud Computing</h5>
+             <Link to='/cloud-computing'>
+              <IconContext.Provider value={{color: "#093c84" }}>
+              <FiCloud className="icon-1000"/>
+              </IconContext.Provider>
+              <h5>Cloud Computing</h5>
+             </Link>
              </div>
+
              <div className="col-md-3 pb-5">
-             <IconContext.Provider value={{color: "#093c84" }}>
-             <FiTruck className="icon-1000"/>
-             </IconContext.Provider>
+             <Link to='/devops'>
+              <IconContext.Provider value={{color: "#093c84" }}>
+              <FiTruck className="icon-1000"/>
+              </IconContext.Provider>
              <h5>DevOps</h5>
+             </Link>
              </div>
              <div className="col-md-3 pb-5">
-             <IconContext.Provider value={{color: "#093c84" }}>
-             <FiCode className="icon-1000"/>
-             </IconContext.Provider>
-             <h5>Software Development</h5>
+               <Link to="/software-development">
+                <IconContext.Provider value={{color: "#093c84" }}>
+                <FiCode className="icon-1000"/>
+                </IconContext.Provider>
+                <h5>Software Development</h5>
+               </Link>
              </div>
              <div className="col-md-3 pb-5">
-             <IconContext.Provider value={{color: "#093c84" }}>
-             <FiLayers className="icon-1000"/>
-             </IconContext.Provider>
-             <h5>Infrastructure As Code</h5>
+               <Link to='/infrastructure-as-code'>
+                <IconContext.Provider value={{color: "#093c84" }}>
+                <FiLayers className="icon-1000"/>
+                </IconContext.Provider>
+                <h5>Infrastructure As Code</h5>
+               </Link>
              </div>
            </div>
           </div>

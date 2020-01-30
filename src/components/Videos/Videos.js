@@ -11,7 +11,8 @@ export class Videos extends React.Component {
     this.state = {
       error: null,
       isLoaded: false,
-      items: []
+      items: [],
+      result:null
     };
   }
 
@@ -22,7 +23,8 @@ export class Videos extends React.Component {
         (result) => {
           this.setState({
             isLoaded: true,
-            items: result.items
+            items: result.items,
+            result: result
           });
         },
         (error) => {
@@ -41,7 +43,8 @@ export class Videos extends React.Component {
         (result) => {
           this.setState({
             isLoaded: true,
-            items: result.items
+            items: result.items,
+            result: result
           });
         },
         (error) => {
@@ -59,6 +62,7 @@ render() {
   let videos = <div></div>
   if(items && items.length>0)
   {
+    console.log(this.state.result);
     videos =  this.state.items.map(video => 
 
       <div className="col-3">

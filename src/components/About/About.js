@@ -32,7 +32,7 @@ export class About extends React.Component {
                 <p>My mission in life is to build amazing scalable applications that runs in the cloud. </p>
                 <p>In my daily life I work with helping customers move to and build for the cloud. </p>
                 <p>I love my job and I often say that I don’t work for a living, but I get paid to do my hobby. </p>
-                <p>I have a sailboat and go sailing when I need to get disconnected and the weather allows for it. </p>
+                <p>I have a sailboat and love to go sailing when I need to get disconnected and the weather allows for it. </p>
                   </div>
               <div className="col-3">
                 <img src={me} alt="Me" className="img-fluid rounded-circle"></img>
