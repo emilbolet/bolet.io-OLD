@@ -34,24 +34,14 @@ export class Home extends Component {
   }
   render () {
     const { error, isLoaded, items } = this.state;
-    console.log(items);
-    let videos = <div></div>
-    if(items && items.length>0)
-    {
-      videos = items.map(item => (
-        <div className="col-md-4" key={item.etag}>
-          <a href={"https://www.youtube.com/watch?v=" +item.id.videoId}>
-            <img className="img-thumbnail"  src={item.snippet.thumbnails.high.url} alt={item.snippet.title}></img>
-          </a>
-        </div>
+    let videos = items.map(item => (
+      <div className="col-md-4" key={item.etag}>
+        <a href={"https://www.youtube.com/watch?v=" +item.id.videoId}>
+          <img className="img-thumbnail"  src={item.snippet.thumbnails.high.url} alt={item.snippet.title}></img>
+        </a>
+      </div>
 
-      ));
-    }
-    else
-    {
-      console.log(error);
-    }
-
+    ));
     return (
       
       <div>
