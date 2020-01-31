@@ -17,7 +17,7 @@ steps:
     filepath: '.env'
     filecontent: |
       REACT_APP_API_KEY=$(youtube)
-      REACT_APP_INSTRUMENTATION_KEY=7591c76d-376e-4182-8dee-3b747c9f3109
+      REACT_APP_INSTRUMENTATION_KEY=$(Instrumantal)
 
 - task: NodeTool@0
   inputs:
