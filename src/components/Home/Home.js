@@ -34,6 +34,9 @@ export class Home extends Component {
   }
   render () {
     const { error, isLoaded, items } = this.state;
+    if(error){
+      console.log(error);
+    }
     let videos = <div className="col-12 text-center"><i>Loading videos...</i></div>
     if(isLoaded && items  && items.length > 0)
     {

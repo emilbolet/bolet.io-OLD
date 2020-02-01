@@ -22,11 +22,11 @@ export class About extends React.Component {
   render() {
     return (
       <div>
-        <section class="bg-light border-bottom section-padding">
-          <div class="container">
+        <section className="bg-light border-bottom section-padding">
+          <div className="container">
             <div className="row"> 
               <div className="col-9">
-                <h2 class="font-weight-light ">Hi, my name is Emil Ræbild Bolet </h2>
+                <h2 className="font-weight-light ">Hi, my name is Emil Ræbild Bolet </h2>
                 <p>I'm {this.state.age} years old.</p>
                 <p>I live in the fourth largest city in Denmark called Aalborg with my beautiful girlfriend Trine and I work at a small company called Commentor A/S.</p>
                 <p>My mission in life is to build amazing scalable applications that runs in the cloud. </p>

@@ -6,11 +6,15 @@ export class SoftwareDevelopment extends Component{
 
     render(){
         return (
-            <div className="container">
-                <div className="row">
-                <h1>Software Development</h1>
-                </div>
-            </div>
+                <section className="bg-light border-bottom section-padding">
+                    <div className="container">
+                        <div className="row"> 
+                            <div className="col-12">
+                                <h1>Software Development</h1>
+                            </div>
+                        </div>
+                    </div>
+                </section>
         );
     }
 

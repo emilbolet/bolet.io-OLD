@@ -1,6 +1,6 @@
 import React    from "react";
 import {Searchbar} from './Searchbar'
-import {Filters} from './Filters'
+// import {Filters} from './Filters'
 import './Videos.css'
 
 let apiKey = process.env.REACT_APP_API_KEY;
@@ -43,6 +43,10 @@ export class Videos extends React.Component {
 
 render() {
   const { error, isLoaded, items } = this.state;
+  if(error){
+    console.log(error);
+  }
+
   let videos = <div className="col-12 text-center"><i>Loading videos...</i></div>
   if(isLoaded && items  && items.length > 0)
   {
