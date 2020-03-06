@@ -15,7 +15,7 @@ export class About extends React.Component {
       diff /= (60 * 60 * 24);
 
       this.setState({
-        age:Math.abs(Math.round(diff/365.25))
+        age:Math.abs(Math.floor(diff/365.25))
       });
   }
 
