@@ -24,11 +24,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: Install Packages
-        id: restore
-        run: npm install
+      id: restore
+      run: npm install
     - name: Build page
-        id: build
-        run: npm run build
+      id: build
+      run: npm run build
     - name: Deploy
       id: deploy
       uses: Azure/static-web-apps-deploy@v0.0.1-preview
