@@ -16,7 +16,7 @@ jobs:
     name: Build and Deploy Job
     strategy:
       matrix:
-        node-version: [10.x]
+        node-version: [14.x]
     steps:
     - uses: actions/checkout@v1
     - name: Use Node.js ${{ matrix.node-version }}
