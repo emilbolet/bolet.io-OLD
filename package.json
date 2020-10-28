@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@microsoft/applicationinsights-react-js": "^2.5.4",
-    "@microsoft/applicationinsights-web": "^2.5.5",
+    "@microsoft/applicationinsights-web": "^2.5.9",
     "bootstrap": "^4.5.0",
     "moment": "^2.28.0",
     "react": "^16.13.1",
