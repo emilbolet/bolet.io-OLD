@@ -3,52 +3,28 @@ import { IconContext } from "react-icons";
 import { FiLayers,FiCloud,FiTruck,FiCode } from "react-icons/fi";
 import { Link } from 'react-router-dom';
 import './Home.css'
+import me from './me.png'
+
 let apiKey = process.env.REACT_APP_API_KEY;
 export class Home extends Component {
   static displayName = Home.name;
   constructor(props) {
     super(props);
     this.state = {
-      error: null,
-      isLoaded: false,
-      items: []
+      age: 0,
     };
   }
   componentDidMount() {
-    fetch("https://www.googleapis.com/youtube/v3/search?key="+apiKey+"&channelId=UCsMica-v34Irf9KVTh6xx-g&part=snippet,id&order=date&maxResults=3")
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            items: result.items
-          });
-        },
-        (error) => {
-          this.setState({
-            isLoaded: false,
-            error
-          });
-        }
-      )
+      let birthday = new Date(1992,7,4).getTime();
+      let now = Date.now();
+      let diff = (now - birthday) / 1000;
+      diff /= (60 * 60 * 24);
+
+      this.setState({
+        age:Math.abs(Math.floor(diff/365.25))
+      });
   }
   render () {
-    const { error, isLoaded, items } = this.state;
-    if(error){
-      console.log(error);
-    }
-    let videos = <div className="col-12 text-center"><i>Loading videos...</i></div>
-    if(isLoaded && items  && items.length > 0)
-    {
-      videos = items.map(item => (
-        <div className="col-md-4" key={item.etag}>
-          <a href={"https://www.youtube.com/watch?v=" +item.id.videoId}>
-            <img className="img-thumbnail"  src={item.snippet.thumbnails.high.url} alt={item.snippet.title}></img>
-          </a>
-        </div>
-  
-      ));
-    }
     return (
       
       <div>
@@ -64,8 +40,21 @@ export class Home extends Component {
         </header>
         <section className="bg-light border-bottom section-padding">
           <div className="container">
-            <h2 className="font-weight-light ">Bolet.io</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus ab nulla dolorum autem nisi officiis blanditiis voluptatem hic, assumenda aspernatur facere ipsam nemo ratione cumque magnam enim fugiat reprehenderit expedita.</p>
+            <div className="row"> 
+              <div className="col-9">
+                <h2 className="font-weight-light ">Hi, my name is Emil Ræbild Bolet </h2>
+                <p>I'm {this.state.age} years old.</p>
+                <p>I live in the fourth largest city in Denmark called Aalborg with my beautiful girlfriend Trine and daughter Marie.</p>
+                 <p>I work at a software consulting company called Commentor as a Software Architect.</p>
+                <p>My mission in life is to build amazing scalable applications that runs in the cloud. </p>
+                <p>In my daily life I work with helping customers move to and build for the cloud. </p>
+                <p>I love my job and I often say that I don’t work for a living, but I get paid to do my hobby. </p>
+                <p>I have a sailboat and love to go sailing when I need to get disconnected and the weather allows for it. </p>
+                  </div>
+              <div className="col-3">
+                <img src={me} alt="Me" className="img-fluid "></img>
+              </div>
+            </div>
           </div>
         </section>
         <section className="border-bottom section-padding">
@@ -108,14 +97,14 @@ export class Home extends Component {
            </div>
           </div>
         </section>
-        <section className="bg-light border-bottom section-padding text-right">
+        {/* <section className="bg-light border-bottom section-padding text-right">
           <div className="container">
             <h2 className="font-weight-light">Recent Videos</h2>
             <div className="row">
             {videos}
             </div>  
           </div>  
-        </section>
+        </section> */}
       </div>
 
     );

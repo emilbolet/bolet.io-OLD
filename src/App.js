@@ -22,7 +22,6 @@ function App() {
     <TelemetryProvider instrumentationKey={instrumentationKey} after={() => getAppInsights() }>
       <Layout>
         <Route exact path='/' component={Home} />
-        <Route exact path='/videos' component={Videos}/>
         <Route exact path='/about' component={About} />
         <Route exact path='/cloud-computing' component={CloudComputing} />
         <Route exact path='/devops' component={DevOps} />
