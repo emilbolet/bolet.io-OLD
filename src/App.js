@@ -3,7 +3,7 @@ import { Route } from 'react-router';
 import './App.css';
 import { Layout } from './components/Layout';
 import { Home } from './components/Home/Home';
-import {Videos} from './components/Videos/Videos';
+
 import {About} from './components/About/About';
 import {CloudComputing} from './components/CloudComputing/CloudComputing';
 import {DevOps} from './components/DevOps/DevOps';

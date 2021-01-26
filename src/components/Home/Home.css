@@ -29,3 +29,8 @@
       font-size: 1.25rem;
     }
 }
+.btn-read-more{
+  border-radius: 0;
+  background-color: #093c84;
+  color: #ffffff;
+}

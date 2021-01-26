@@ -1,6 +1,9 @@
 import React    from "react";
 import './About.css'
 import me from './me.png'
+import architect from "./badges/microsoft-certified-azure-solutions-architect-expert.png";
+import developer from "./badges/microsoft-certified-azure-developer-associate.png";
+import scrum from "./badges/certified-safe-5-scrum-master.png";
 export class About extends React.Component {
   constructor(props) {
     super(props);
@@ -36,6 +39,32 @@ export class About extends React.Component {
                   </div>
               <div className="col-3">
                 <img src={me} alt="Me" className="img-fluid rounded-circle"></img>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="border-bottom section-padding">
+          <div className="container">
+            <div className="row text-center">
+              <div className="col-4">
+                <a href="https://www.youracclaim.com/badges/234473e4-9da2-4551-b619-8ef075157486" target="_blank">
+                  <img src={scrum} class="img-fluid" alt="Scrum"/>  
+                </a>
+              </div>
+              <div className="col-4">
+                <a href="https://www.youracclaim.com/badges/391efeb8-3b8b-43f2-84a0-115b5bc2d72c" target="_blank">
+                  <img src={architect} class="img-fluid" alt="Azure Architect"/>    
+                </a>
+              </div>
+              <div className="col-4">
+                <a href="https://www.youracclaim.com/badges/97c21d3d-281a-4e85-8145-d806bd94bfd2" target="_blank">
+                  <img src={developer} class="img-fluid" alt="Azure Developer"/>   
+                </a>
+              </div>
+            </div>
+            <div className="row text-right pt-5">
+              <div className="col-12">
+              <a href="https://www.youracclaim.com/users/emilbolet/badges">My youracclaim profile</a>
               </div>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { IconContext } from "react-icons";
-import { FiLayers,FiCloud,FiTruck,FiCode } from "react-icons/fi";
+import { FiLayers, FiCloud, FiTruck, FiCode } from "react-icons/fi";
 import { Link } from 'react-router-dom';
 import './Home.css'
 import me from './me.png'
@@ -15,18 +15,18 @@ export class Home extends Component {
     };
   }
   componentDidMount() {
-      let birthday = new Date(1992,7,4).getTime();
-      let now = Date.now();
-      let diff = (now - birthday) / 1000;
-      diff /= (60 * 60 * 24);
+    let birthday = new Date(1992, 7, 4).getTime();
+    let now = Date.now();
+    let diff = (now - birthday) / 1000;
+    diff /= (60 * 60 * 24);
 
-      this.setState({
-        age:Math.abs(Math.floor(diff/365.25))
-      });
+    this.setState({
+      age: Math.abs(Math.floor(diff / 365.25))
+    });
   }
-  render () {
+  render() {
     return (
-      
+
       <div>
         <header className="masthead">
           <div className="container h-100">
@@ -40,19 +40,22 @@ export class Home extends Component {
         </header>
         <section className="bg-light border-bottom section-padding">
           <div className="container">
-            <div className="row"> 
-              <div className="col-9">
+            <div className="row">
+              <div className="col-8">
                 <h2 className="font-weight-light ">Hi, my name is Emil Ræbild Bolet </h2>
                 <p>I'm {this.state.age} years old.</p>
                 <p>I live in the fourth largest city in Denmark called Aalborg with my beautiful girlfriend Trine and daughter Marie.</p>
-                 <p>I work at a software consulting company called Commentor as a Software Architect.</p>
+                <p>I work at a software consulting company called Commentor as a Software Architect.</p>
                 <p>My mission in life is to build amazing scalable applications that runs in the cloud. </p>
                 <p>In my daily life I work with helping customers move to and build for the cloud. </p>
                 <p>I love my job and I often say that I don’t work for a living, but I get paid to do my hobby. </p>
                 <p>I have a sailboat and love to go sailing when I need to get disconnected and the weather allows for it. </p>
-                  </div>
-              <div className="col-3">
-                <img src={me} alt="Me" className="img-fluid "></img>
+                <Link to='/about' className="btn btn-read-more"> 
+                  Read More
+                </Link>
+              </div>
+              <div className="col-4">
+                <img src={me} alt="Me" className="img-fluid"></img>
               </div>
             </div>
           </div>
@@ -60,41 +63,41 @@ export class Home extends Component {
         <section className="border-bottom section-padding">
           <div className="container">
 
-           <div className="row text-center">
-           <div className="col-md-3 pb-5">
-             <Link to='/cloud-computing'>
-              <IconContext.Provider value={{color: "#093c84" }}>
-              <FiCloud className="icon-1000"/>
-              </IconContext.Provider>
-              <h5>Cloud Computing</h5>
-             </Link>
-             </div>
+            <div className="row text-center">
+              <div className="col-md-3 pb-5">
+                <Link to='/cloud-computing'>
+                  <IconContext.Provider value={{ color: "#093c84" }}>
+                    <FiCloud className="icon-1000" />
+                  </IconContext.Provider>
+                  <h5>Cloud Computing</h5>
+                </Link>
+              </div>
 
-             <div className="col-md-3 pb-5">
-             <Link to='/devops'>
-              <IconContext.Provider value={{color: "#093c84" }}>
-              <FiTruck className="icon-1000"/>
-              </IconContext.Provider>
-             <h5>DevOps</h5>
-             </Link>
-             </div>
-             <div className="col-md-3 pb-5">
-               <Link to="/software-development">
-                <IconContext.Provider value={{color: "#093c84" }}>
-                <FiCode className="icon-1000"/>
-                </IconContext.Provider>
-                <h5>Software Development</h5>
-               </Link>
-             </div>
-             <div className="col-md-3 pb-5">
-               <Link to='/infrastructure-as-code'>
-                <IconContext.Provider value={{color: "#093c84" }}>
-                <FiLayers className="icon-1000"/>
-                </IconContext.Provider>
-                <h5>Infrastructure As Code</h5>
-               </Link>
-             </div>
-           </div>
+              <div className="col-md-3 pb-5">
+                <Link to='/devops'>
+                  <IconContext.Provider value={{ color: "#093c84" }}>
+                    <FiTruck className="icon-1000" />
+                  </IconContext.Provider>
+                  <h5>DevOps</h5>
+                </Link>
+              </div>
+              <div className="col-md-3 pb-5">
+                <Link to="/software-development">
+                  <IconContext.Provider value={{ color: "#093c84" }}>
+                    <FiCode className="icon-1000" />
+                  </IconContext.Provider>
+                  <h5>Software Development</h5>
+                </Link>
+              </div>
+              <div className="col-md-3 pb-5">
+                <Link to='/infrastructure-as-code'>
+                  <IconContext.Provider value={{ color: "#093c84" }}>
+                    <FiLayers className="icon-1000" />
+                  </IconContext.Provider>
+                  <h5>Infrastructure As Code</h5>
+                </Link>
+              </div>
+            </div>
           </div>
         </section>
         {/* <section className="bg-light border-bottom section-padding text-right">
