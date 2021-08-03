@@ -64,7 +64,7 @@ export class About extends React.Component {
             </div>
             <div className="row text-right pt-5">
               <div className="col-12">
-              <a href="https://www.youracclaim.com/users/emilbolet/badges">My youracclaim profile</a>
+              <a href="https://www.credly.com/users/emilbolet/badges">My credly profile</a>
               </div>
             </div>
           </div>
